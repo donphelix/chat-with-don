@@ -1,10 +1,3 @@
-/**
- * Created by PhpStorm.
- * User: don@donphelix.com
- * Date: 7/19/22
- * Time: 3:52 PM
- */
-
 const messageReducer = (state = {}, action) => {
     const newState = Object.assign({}, state);
     switch (action.type) {

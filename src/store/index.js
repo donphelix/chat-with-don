@@ -26,7 +26,7 @@ const loadFromLocalStorage = () => {
 
 const store = configureStore({
     reducer: {
-        message: messageReducer
+        message: messageReducer,
     },
     preloadedState: loadFromLocalStorage(),
 });

@@ -1,36 +1,21 @@
-/**
- * Created by PhpStorm.
- * User: don@donphelix.com
- * Date: 7/19/22
- * Time: 1:19 PM
- */
-
-import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
+import React, {useEffect, useState} from 'react';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import CreateMessage from "./CreateMessage";
 import DisplayMessages from "./DisplayMessages";
+import {useStyles} from "../msgstyle";
 
-export const useStyles = makeStyles({
-    table: {
-        minWidth: 650,
-    }, chatSection: {
-        width: '100%', height: '80vh'
-    }, headBG: {
-        backgroundColor: '#e0e0e0'
-    }, borderRight500: {
-        borderRight: '1px solid #e0e0e0'
-    }, messageArea: {
-        height: '70vh', overflowY: 'auto'
-    }
-});
+const names = prompt("Enter your name");
 
 const Chat = () => {
     const classes = useStyles();
-    // const [message, setItems] = useState([]);
+    const [username, setUsername] = useState("Doe");
+
+    useEffect(() => {
+        setUsername(names);
+    }, [username])
 
     return (<div>
         <Grid container>
@@ -41,10 +26,10 @@ const Chat = () => {
         <Grid container component={Paper} className={classes.chatSection}>
             <Grid item xs={12}>
                 {/* Display conversation */}
-                <DisplayMessages />
-                <Divider />
+                <DisplayMessages name={username}/>
+                <Divider/>
                 {/*Create message and submit*/}
-                <CreateMessage />
+                <CreateMessage name={username}/>
             </Grid>
         </Grid>
     </div>);

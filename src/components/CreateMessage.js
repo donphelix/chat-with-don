@@ -1,27 +1,13 @@
-/**
- * Created by PhpStorm.
- * User: don@donphelix.com
- * Date: 7/19/22
- * Time: 3:36 PM
- */
-
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
-import {Chip, Dialog, DialogTitle} from "@material-ui/core";
-import {useEffect, useState} from "react";
+import {Chip} from "@material-ui/core";
 import {useDispatch} from "react-redux";
 import {addMessage} from "../actions";
+import {useState} from "react";
 
-const names = prompt("Enter your name");
-
-const CreateMessage = () => {
+const CreateMessage = (props) => {
     const [message, setMessage] = useState("");
-    const [name, setName] = useState("");
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        setName(names);
-    }, [name])
 
     return (<>
         <Grid container style={{padding: '10px', backgroundColor: '#03a9f4'}}>
@@ -38,7 +24,7 @@ const CreateMessage = () => {
                     clickable
                     onClick={() => {
                         if (!message) return;
-                        dispatch(addMessage(message, name));
+                        dispatch(addMessage(message, props.name));
                         setMessage("");
                     }}
                     label="Send"
