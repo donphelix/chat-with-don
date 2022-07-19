@@ -19,8 +19,25 @@ const saveToLocalStorage = state => {
     }
 }
 
+// load string from localStorage and convert back in to an Object
+// invalid output must be undefined
+const loadFromLocalStorage = () => {
+    try {
+        const serialisedState = localStorage.getItem("persistentState");
+        if (serialisedState === null) return undefined;
+        return JSON.parse(serialisedState);
+    } catch (e) {
+        console.warn(e);
+        return undefined;
+    }
+};
+
 const store = configureStore({
-    reducer: messageReducer
+    reducer: {
+        message: messageReducer,
+        load: loadFromLocalStorage
+    },
+
 })
 
 // listen for store changes and use saveToLocalStorage to
