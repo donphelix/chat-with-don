@@ -21,7 +21,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Fab from '@material-ui/core/Fab';
 import SendIcon from '@material-ui/icons/Send';
 import {Chip} from "@material-ui/core";
-import FaceIcon from '@mui/icons-material/Face';
 
 const useStyles = makeStyles({
     table: {
@@ -48,6 +47,39 @@ const Chat = () => {
         </Grid>
         <Grid container component={Paper} className={classes.chatSection}>
             <Grid item xs={12}>
+                <List className={classes.messageArea}>
+                    <ListItem key="1">
+                        <Grid container>
+                            <Grid item xs={12}>
+                                <ListItemText align="right" primary="Hey man, What's up ?"></ListItemText>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <ListItemText align="right" secondary="09:30"></ListItemText>
+                            </Grid>
+                        </Grid>
+                    </ListItem>
+                    <ListItem key="2">
+                        <Grid container>
+                            <Grid item xs={12}>
+                                <ListItemText align="left" primary="Hey, Iam Good! What about you ?"></ListItemText>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <ListItemText align="left" secondary="09:31"></ListItemText>
+                            </Grid>
+                        </Grid>
+                    </ListItem>
+                    <ListItem key="3">
+                        <Grid container>
+                            <Grid item xs={12}>
+                                <ListItemText align="right"
+                                              primary="Cool. i am good, let's catch up!"></ListItemText>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <ListItemText align="right" secondary="10:30"></ListItemText>
+                            </Grid>
+                        </Grid>
+                    </ListItem>
+                </List>
                 <Divider/>
                 <Grid container style={{padding: '10px', backgroundColor: '#03a9f4'}}>
                     <Grid item xs={11} style={{backgroundColor: 'white', borderRadius: '10px'}}>
