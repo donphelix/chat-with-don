@@ -26,3 +26,4 @@ template/src/__tests__/__snapshots__/
 lerna-debug.log
 /.changelog
 .npm/
+notes.md
