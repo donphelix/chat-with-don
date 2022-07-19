@@ -5,6 +5,7 @@ import List from "@material-ui/core/List";
 import {useSelector} from "react-redux";
 import {Card} from "@material-ui/core";
 import {useStyles} from "../msgstyle";
+import Divider from "@material-ui/core/Divider";
 
 const DisplayMessages = (props) => {
     const classes = useStyles();
@@ -13,9 +14,9 @@ const DisplayMessages = (props) => {
 
     const listMessages = messageKeys.map((key) =>
         {
-            if(messages[key].name === "Don") {
+            if(messages[key].name === props.name) {
 
-                return <Card  variant="outlined" key={`name_${key}`}>
+                return <Card  sx={{ maxWidth: 30 }}  variant="outlined" key={`name_${key}`}>
                     <ListItem>
                         <Grid container>
                             <Grid item xs={12}>
@@ -28,19 +29,22 @@ const DisplayMessages = (props) => {
                     </ListItem>
                 </Card>;
             } else {
-                return <ListItem key={`name_${key}`}>
-                    <Grid container>
-                        <Grid item xs={12}>
-                            <ListItemText align="left" primary={messages[key].label}></ListItemText>
+                return <Card  sx={{ maxWidth: 345 }} variant="outlined" key={`name_${key}`}>
+                    <ListItem>
+                        <Grid container>
+                            <Grid item xs={12}>
+                                <ListItemText align="left" primary={messages[key].label}></ListItemText>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <ListItemText align="left" secondary={messages[key].name}></ListItemText>
+                            </Grid>
                         </Grid>
-                        <Grid item xs={12}>
-                            <ListItemText align="left" secondary={messages[key].name}></ListItemText>
-                        </Grid>
-                    </Grid>
-                </ListItem>;
+                    </ListItem>
+                </Card>
             }
         }
     );
+
     return (
         <>
             <List className={classes.messageArea}>

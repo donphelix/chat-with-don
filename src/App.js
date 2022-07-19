@@ -1,15 +1,16 @@
 import './App.css';
 import Chat from "./components/Chat";
+import {Container} from "@material-ui/core";
 
-function App() {
+const App = () => {
     return (
         <>
             <header></header>
-            <div>
+            <Container maxWidth="md">
                 <Chat />
-            </div>
+            </Container>
         </>
     );
-}
+};
 
 export default App;
