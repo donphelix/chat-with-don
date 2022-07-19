@@ -15,6 +15,7 @@ const messageReducer = (state = {}, action) => {
                     .replace(/[^a-z]+/g, "")
                 ] = {
                 status: false,
+                name: action.name,
                 label: action.payload
             };
             break;

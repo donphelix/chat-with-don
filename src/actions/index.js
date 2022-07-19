@@ -5,9 +5,10 @@
  * Time: 3:49 PM
  */
 
-export const addMessage = payload => {
+export const addMessage = (payload, name) => {
     return {
         type: "MESSAGE_ADD",
-        payload
+        payload,
+        name
     };
 };
