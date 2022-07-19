@@ -16,6 +16,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import {Chip} from "@material-ui/core";
+import CreateMessage from "./CreateMessage";
 
 const useStyles = makeStyles({
     table: {
@@ -33,6 +34,7 @@ const useStyles = makeStyles({
 
 const Chat = () => {
     const classes = useStyles();
+    // const [message, setItems] = useState([]);
 
     return (<div>
         <Grid container>
@@ -76,15 +78,8 @@ const Chat = () => {
                     </ListItem>
                 </List>
                 <Divider/>
-                <Grid container style={{padding: '10px', backgroundColor: '#03a9f4'}}>
-                    <Grid item xs={11} style={{backgroundColor: 'white', borderRadius: '10px'}}>
-                        <TextField placeholder="Start Typing" InputProps={{disableUnderline: true}} fullWidth/>
-                    </Grid>
-                    <Grid item xs={1} align="right">
-                        <Chip clickable onClick={() => console.log("Coming soon")} label="Send"
-                              style={{backgroundColor: 'white', padding: '4px'}}/>
-                    </Grid>
-                </Grid>
+                {/*Create message and submit*/}
+                <CreateMessage />
             </Grid>
         </Grid>
     </div>);
