@@ -9,10 +9,12 @@ import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import {Chip} from "@material-ui/core";
 import {useState} from "react";
+import {useDispatch} from "react-redux";
+import {addMessage} from "../actions";
 
 const CreateMessage = () => {
     const [message, setMessage] = useState("");
-    console.log(message);
+    const dispatch = useDispatch();
 
     return (
         <>
@@ -30,7 +32,7 @@ const CreateMessage = () => {
                         clickable
                         onClick={() => {
                             if (!message) return;
-                            // dispatch an action here to store message
+                            dispatch(addMessage(message));
                             setMessage("");
                         }}
                         label="Send"
